@@ -36,6 +36,10 @@
     max-width: 100%;
 }
 
+body:not(.dark) .lead-text {
+    color: #000000 !important;
+}
+
 .about-visual {
     position: relative;
     height: 400px;

@@ -5,69 +5,75 @@
 
 /* ===== CSS VARIABLES ===== */
 :root {
-    /* Colors - Professional Academic Theme (Light Mode) */
-    --graphite-black: #1e293b;
-    --tungsten-gray: #f8f9fa;
-    --titanium-silver: #334155;
-    --molten-copper: #0066cc;
-    --glass-overlay: rgba(0, 102, 204, 0.1);
+    /* LIGHT MODE - 2025 Academic Theme */
+    --bg-primary: #F5F7FB;
+    --bg-section: #FFFFFF;
+    --color-primary: #1E3A8A;
+    --color-secondary: #2563EB;
+    --color-accent: #F59E0B;
+    --text-main: #000000;
+    --text-muted: #000000;
+    --card-bg: #FFFFFF;
+    --card-border: #E5E7EB;
     
-    /* Additional Academic Colors */
-    --academic-blue: #0066cc;
-    --academic-navy: #003d7a;
-    --academic-gold: #d4af37;
-    --academic-green: #2d8659;
-    --light-bg: #ffffff;
-    --light-gray: #f1f5f9;
-    --text-dark: #003366;
-    --text-medium: #003366;
-    --text-light: #003d7a;
+    /* Legacy support - mapped to new colors */
+    --academic-blue: #2563EB;
+    --academic-navy: #1E3A8A;
+    --academic-gold: #F59E0B;
+    --light-bg: #F5F7FB;
+    --light-gray: #F5F7FB;
+    --text-dark: #000000;
+    --text-medium: #000000;
+    --text-light: #000000;
     
     /* Navbar Colors */
     --navbar-bg: rgba(255, 255, 255, 0.95);
-    --navbar-text: #003366;
-    --navbar-text-hover: #0066cc;
-    --navbar-border: rgba(0, 102, 204, 0.1);
+    --navbar-text: #000000;
+    --navbar-text-hover: #2563EB;
+    --navbar-border: rgba(30, 58, 138, 0.1);
     
     /* Typography */
-    --font-heading: 'Inter', sans-serif;
+    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
     --font-subtext: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
     
     /* Spacing */
     --spacing-unit: 8px;
     
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s ease;
 }
 
-/* Dark Mode Variables */
-[data-theme="dark"] {
-    /* Dark Mode Colors */
-    --graphite-black: #0B0D0F;
-    --tungsten-gray: #15181C;
-    --titanium-silver: #D1D5DB;
-    --molten-copper: #B87333;
-    --glass-overlay: rgba(255, 255, 255, 0.08);
+/* DARK MODE - 2025 Academic Theme */
+body.dark {
+    /* DARK MODE Colors */
+    --bg-primary: #0B1220;
+    --bg-section: #111827;
+    --color-primary: #60A5FA;
+    --color-secondary: #3B82F6;
+    --color-accent: #FBBF24;
+    --text-main: #E5E7EB;
+    --text-muted: #9CA3AF;
+    --card-bg: #111827;
+    --card-border: #1F2937;
     
-    /* Dark Mode Academic Colors */
-    --academic-blue: #4A9EFF;
-    --academic-navy: #2563EB;
+    /* Legacy support - mapped to new colors */
+    --academic-blue: #3B82F6;
+    --academic-navy: #60A5FA;
     --academic-gold: #FBBF24;
-    --academic-green: #34D399;
-    --light-bg: #0B0D0F;
-    --light-gray: #15181C;
-    --text-dark: #FFFFFF;
-    --text-medium: #E5E7EB;
-    --text-light: #D1D5DB;
+    --light-bg: #0B1220;
+    --light-gray: #111827;
+    --text-dark: #E5E7EB;
+    --text-medium: #9CA3AF;
+    --text-light: #9CA3AF;
     
     /* Dark Mode Navbar Colors */
-    --navbar-bg: rgba(11, 13, 15, 0.95);
-    --navbar-text: #FFFFFF;
-    --navbar-text-hover: #B87333;
-    --navbar-border: rgba(255, 255, 255, 0.05);
+    --navbar-bg: rgba(17, 24, 39, 0.95);
+    --navbar-text: #E5E7EB;
+    --navbar-text-hover: #60A5FA;
+    --navbar-border: rgba(96, 165, 250, 0.1);
 }
 
 /* ===== RESET & BASE ===== */
@@ -87,9 +93,9 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--light-bg);
-    color: var(--text-dark);
-    line-height: 1.6;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.7;
     overflow-x: hidden;
     font-size: 16px;
     width: 100%;
@@ -135,14 +141,13 @@ img {
 }
 
 /* Ensure images are visible in light mode */
-[data-theme="light"] img,
-:not([data-theme]) img {
+body:not(.dark) img {
     opacity: 1;
     filter: brightness(1) contrast(1.05);
 }
 
 /* Dark mode images */
-[data-theme="dark"] img {
+body.dark img {
     filter: brightness(0.9) contrast(1.1);
 }
 
@@ -325,36 +330,35 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    line-height: 1.2;
-    color: var(--text-dark);
+    line-height: 1.3;
+    color: var(--text-main);
 }
 
-/* Light theme - black text for all headings */
-:root h1,
-:root h2,
-:root h3,
-:root h4,
-:root h5,
-:root h6,
-:root .feature-title,
-:root .page-title,
-:root .card-title,
-:root .section-title {
+/* Ensure headings are visible in both modes */
+body:not(.dark) h1,
+body:not(.dark) h2,
+body:not(.dark) h3,
+body:not(.dark) h4,
+body:not(.dark) h5,
+body:not(.dark) h6,
+body:not(.dark) .feature-title,
+body:not(.dark) .page-title,
+body:not(.dark) .card-title,
+body:not(.dark) .section-title {
     color: #000000 !important;
 }
 
-/* Dark theme - white/light text */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6,
-[data-theme="dark"] .feature-title,
-[data-theme="dark"] .page-title,
-[data-theme="dark"] .card-title,
-[data-theme="dark"] .section-title {
-    color: #FFFFFF !important;
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark .feature-title,
+body.dark .page-title,
+body.dark .card-title,
+body.dark .section-title {
+    color: var(--text-main) !important;
 }
 
 h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
@@ -378,59 +382,67 @@ p {
     font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
     max-width: 65ch;
     line-height: 1.8;
-    color: var(--text-dark);
+    color: var(--text-muted);
 }
 
-/* Light theme - all text black */
-:root p,
-:root .feature-text,
-:root .hero-subtext,
-:root .italic-subtext,
-:root li,
-:root span:not(.icon-sun):not(.icon-moon),
-:root .stat-label,
-:root .cta-text,
-:root .card-text,
-:root .card-body p,
-:root .card-body li,
-:root .card-body,
-:root .list-group-item,
-:root td,
-:root th,
-:root label,
-:root .form-label {
+/* Ensure paragraphs use black text in light mode */
+body:not(.dark) p,
+body:not(.dark) .feature-text,
+body:not(.dark) .hero-subtext,
+body:not(.dark) .italic-subtext,
+body:not(.dark) li,
+body:not(.dark) span:not(.icon-sun):not(.icon-moon),
+body:not(.dark) .stat-label,
+body:not(.dark) .cta-text,
+body:not(.dark) .card-text,
+body:not(.dark) .card-body p,
+body:not(.dark) .card-body li,
+body:not(.dark) .card-body,
+body:not(.dark) .list-group-item,
+body:not(.dark) td,
+body:not(.dark) th,
+body:not(.dark) label,
+body:not(.dark) .form-label {
     color: #000000 !important;
 }
 
-/* Dark theme - all text white/light */
-[data-theme="dark"] p,
-[data-theme="dark"] .feature-text,
-[data-theme="dark"] .hero-subtext,
-[data-theme="dark"] .italic-subtext,
-[data-theme="dark"] li,
-[data-theme="dark"] span:not(.icon-sun):not(.icon-moon),
-[data-theme="dark"] .stat-label,
-[data-theme="dark"] .cta-text {
-    color: #FFFFFF;
+body.dark p,
+body.dark .feature-text,
+body.dark .hero-subtext,
+body.dark .italic-subtext,
+body.dark li,
+body.dark span:not(.icon-sun):not(.icon-moon),
+body.dark .stat-label,
+body.dark .cta-text,
+body.dark .card-text,
+body.dark .card-body p,
+body.dark .card-body li,
+body.dark .card-body,
+body.dark .list-group-item,
+body.dark td,
+body.dark th,
+body.dark label,
+body.dark .form-label {
+    color: var(--text-muted) !important;
 }
 
 .italic-subtext {
     font-family: var(--font-subtext);
     font-style: italic;
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--text-dark);
-    opacity: 0.85;
+    color: var(--text-muted);
+    opacity: 0.9;
 }
 
 /* ===== LINKS ===== */
 a {
-    color: var(--academic-blue);
+    color: var(--color-secondary);
     text-decoration: none;
     transition: var(--transition-fast);
 }
 
 a:hover {
-    color: var(--academic-navy);
+    color: var(--color-primary);
 }
 
 /* ===== BUTTONS ===== */
@@ -442,85 +454,85 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 0.875rem;
-    background: var(--academic-blue);
-    color: var(--light-bg);
-    border: 2px solid var(--academic-blue);
+    background: var(--color-primary);
+    color: #FFFFFF;
+    border: 2px solid var(--color-primary);
     border-radius: 24px;
     cursor: pointer;
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.3);
     min-width: 140px;
     text-align: center;
 }
 
 .btn-neo:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.4);
-    color: var(--light-bg);
-    background: var(--academic-navy);
-    border-color: var(--academic-navy);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.4);
+    color: #FFFFFF;
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
 }
 
 .btn-neo:active {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
 .btn-neo:focus {
-    outline: 3px solid rgba(0, 102, 204, 0.3);
+    outline: 3px solid rgba(30, 58, 138, 0.3);
     outline-offset: 2px;
 }
 
 .btn-neo-primary {
-    background: linear-gradient(135deg, var(--academic-blue) 0%, var(--academic-navy) 100%);
-    color: var(--light-bg);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: #FFFFFF;
     font-weight: 700;
-    border: 2px solid var(--academic-blue);
-    box-shadow: 0 4px 16px rgba(0, 102, 204, 0.4);
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 16px rgba(30, 58, 138, 0.4);
 }
 
 .btn-neo-primary:hover {
-    background: linear-gradient(135deg, var(--academic-navy) 0%, var(--academic-blue) 100%);
-    color: var(--light-bg);
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.5);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.5);
 }
 
 .btn-neo-secondary {
-    background: var(--light-bg);
-    border: 2px solid var(--academic-blue);
-    color: var(--academic-blue);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    background: var(--bg-section);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
 .btn-neo-secondary:hover {
-    background: var(--academic-blue);
-    color: var(--light-bg);
-    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35);
+    background: var(--color-primary);
+    color: #FFFFFF;
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.35);
 }
 
 /* Dark mode button styles */
-[data-theme="dark"] .btn-neo {
-    background: var(--academic-blue);
-    color: var(--light-bg);
-    box-shadow: 0 4px 16px rgba(74, 158, 255, 0.3);
+body.dark .btn-neo {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(96, 165, 250, 0.3);
 }
 
-[data-theme="dark"] .btn-neo:hover {
-    background: var(--academic-navy);
-    box-shadow: 0 8px 24px rgba(74, 158, 255, 0.4);
+body.dark .btn-neo:hover {
+    background: var(--color-secondary);
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
 }
 
-[data-theme="dark"] .btn-neo-secondary {
-    background: var(--tungsten-gray);
-    border-color: var(--academic-blue);
-    color: var(--titanium-silver);
+body.dark .btn-neo-secondary {
+    background: var(--bg-section);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
-[data-theme="dark"] .btn-neo-secondary:hover {
-    background: var(--academic-blue);
-    color: var(--light-bg);
+body.dark .btn-neo-secondary:hover {
+    background: var(--color-primary);
+    color: #FFFFFF;
 }
 
 /* ===== CONTAINERS & SECTIONS ===== */
@@ -537,6 +549,8 @@ section {
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    background-color: var(--bg-section);
+    transition: background-color 0.3s ease;
 }
 
 /* Remove extra spacing before footer */
@@ -571,10 +585,17 @@ section .container {
     height: 1px;
     background: linear-gradient(90deg, 
         transparent 0%, 
-        rgba(0, 102, 204, 0.3) 50%, 
+        rgba(30, 58, 138, 0.3) 50%, 
         transparent 100%);
     margin: calc(var(--spacing-unit) * 3) 0;
     position: relative;
+}
+
+body.dark .section-divider {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(96, 165, 250, 0.3) 50%, 
+        transparent 100%);
 }
 
 .section-divider::before {
@@ -585,19 +606,19 @@ section .container {
     transform: translate(-50%, -50%);
     width: 4px;
     height: 4px;
-    background: var(--academic-blue);
+    background: var(--color-primary);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--academic-blue);
+    box-shadow: 0 0 10px var(--color-primary);
 }
 
 /* ===== NEOMORPHISM CARDS ===== */
 .neo-card {
-    background: var(--light-bg);
+    background: var(--card-bg);
     border-radius: 24px;
     padding: calc(var(--spacing-unit) * 3);
     transition: var(--transition-smooth);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 102, 204, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--card-border);
     position: relative;
     overflow: hidden;
 }
@@ -618,8 +639,13 @@ section .container {
 
 .neo-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.2);
-    border-color: rgba(0, 102, 204, 0.3);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.15);
+    border-color: var(--color-primary);
+}
+
+body.dark .neo-card:hover {
+    box-shadow: 0 8px 24px rgba(96, 165, 250, 0.2);
+    border-color: var(--color-primary);
 }
 
 .neo-card:hover::before {
@@ -637,7 +663,7 @@ section .container {
 .neo-card p,
 .neo-card .feature-text,
 .neo-card .stat-label {
-    color: var(--text-dark);
+    color: var(--text-muted);
 }
 
 .neo-card h1,
@@ -647,48 +673,59 @@ section .container {
 .neo-card h5,
 .neo-card h6,
 .neo-card .feature-title {
-    color: var(--text-dark);
+    color: var(--text-main);
 }
 
-/* Light theme cards - black text */
-:root .neo-card p,
-:root .neo-card .feature-text,
-:root .neo-card .stat-label,
-:root .neo-card h1,
-:root .neo-card h2,
-:root .neo-card h3,
-:root .neo-card h4,
-:root .neo-card h5,
-:root .neo-card h6,
-:root .neo-card .feature-title,
-:root .card h1,
-:root .card h2,
-:root .card h3,
-:root .card h4,
-:root .card h5,
-:root .card h6,
-:root .card-title,
-:root .card-body h1,
-:root .card-body h2,
-:root .card-body h3,
-:root .card-body h4,
-:root .card-body h5,
-:root .card-body h6 {
+/* Ensure card text is black in light mode */
+body:not(.dark) .neo-card p,
+body:not(.dark) .neo-card .feature-text,
+body:not(.dark) .neo-card .stat-label,
+body:not(.dark) .neo-card h1,
+body:not(.dark) .neo-card h2,
+body:not(.dark) .neo-card h3,
+body:not(.dark) .neo-card h4,
+body:not(.dark) .neo-card h5,
+body:not(.dark) .neo-card h6,
+body:not(.dark) .neo-card .feature-title,
+body:not(.dark) .card h1,
+body:not(.dark) .card h2,
+body:not(.dark) .card h3,
+body:not(.dark) .card h4,
+body:not(.dark) .card h5,
+body:not(.dark) .card h6,
+body:not(.dark) .card-title,
+body:not(.dark) .card-body h1,
+body:not(.dark) .card-body h2,
+body:not(.dark) .card-body h3,
+body:not(.dark) .card-body h4,
+body:not(.dark) .card-body h5,
+body:not(.dark) .card-body h6 {
     color: #000000 !important;
 }
 
-/* Dark theme cards - white text */
-[data-theme="dark"] .neo-card p,
-[data-theme="dark"] .neo-card .feature-text,
-[data-theme="dark"] .neo-card .stat-label,
-[data-theme="dark"] .neo-card h1,
-[data-theme="dark"] .neo-card h2,
-[data-theme="dark"] .neo-card h3,
-[data-theme="dark"] .neo-card h4,
-[data-theme="dark"] .neo-card h5,
-[data-theme="dark"] .neo-card h6,
-[data-theme="dark"] .neo-card .feature-title {
-    color: #FFFFFF;
+body:not(.dark) .neo-card p,
+body:not(.dark) .neo-card .feature-text,
+body:not(.dark) .neo-card .stat-label {
+    color: #000000 !important;
+}
+
+body.dark .neo-card p,
+body.dark .neo-card .feature-text,
+body.dark .neo-card .stat-label,
+body.dark .neo-card h1,
+body.dark .neo-card h2,
+body.dark .neo-card h3,
+body.dark .neo-card h4,
+body.dark .neo-card h5,
+body.dark .neo-card h6,
+body.dark .neo-card .feature-title {
+    color: var(--text-main) !important;
+}
+
+body.dark .neo-card p,
+body.dark .neo-card .feature-text,
+body.dark .neo-card .stat-label {
+    color: var(--text-muted) !important;
 }
 
 /* ===== GLASSMORPHISM ===== */
@@ -696,29 +733,87 @@ section .container {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 102, 204, 0.2);
+    border: 1px solid rgba(30, 58, 138, 0.2);
     border-radius: 24px;
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
+body.dark .glass-panel {
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 /* ===== UTILITIES ===== */
 .text-copper {
-    color: var(--academic-blue);
+    color: var(--color-secondary);
 }
 
 .bg-tungsten {
-    background-color: var(--light-gray);
+    background-color: var(--bg-section);
 }
 
 .bg-graphite {
-    background-color: var(--academic-navy);
+    background-color: var(--color-primary);
 }
 
 .spacing-top { margin-top: calc(var(--spacing-unit) * 2); }
 .spacing-bottom { margin-bottom: calc(var(--spacing-unit) * 2); }
 .spacing-y { margin-top: calc(var(--spacing-unit) * 2); margin-bottom: calc(var(--spacing-unit) * 2); }
+
+/* ===== COMPREHENSIVE LIGHT MODE TEXT OVERRIDES ===== */
+/* Ensure ALL text is black in light mode - Universal override */
+body:not(.dark) {
+    color: #000000;
+}
+
+/* Specific text element overrides */
+body:not(.dark) .lead-text,
+body:not(.dark) .hero-description,
+body:not(.dark) .brand-name,
+body:not(.dark) .brand-subtitle,
+body:not(.dark) .category-title,
+body:not(.dark) .category-description,
+body:not(.dark) .about-text,
+body:not(.dark) .mission-text,
+body:not(.dark) .vision-text,
+body:not(.dark) .dashboard-title,
+body:not(.dark) .dashboard-text,
+body:not(.dark) .sidebar-link,
+body:not(.dark) .sidebar-title,
+body:not(.dark) .card-title,
+body:not(.dark) .card-text,
+body:not(.dark) .table td,
+body:not(.dark) .table th,
+body:not(.dark) label,
+body:not(.dark) .form-label,
+body:not(.dark) .form-text,
+body:not(.dark) .alert,
+body:not(.dark) .badge,
+body:not(.dark) .list-group-item,
+body:not(.dark) .course-title,
+body:not(.dark) .course-description,
+body:not(.dark) .facility-title,
+body:not(.dark) .facility-description,
+body:not(.dark) .placement-title,
+body:not(.dark) .contact-info,
+body:not(.dark) .login-text,
+body:not(.dark) .form-control,
+body:not(.dark) .form-select,
+body:not(.dark) .input-group-text {
+    color: #000000 !important;
+}
+
+/* Override titanium-silver and rgba colors in light mode */
+body:not(.dark) [class*="titanium"],
+body:not(.dark) [style*="color: rgba(209, 213, 219"],
+body:not(.dark) [style*="color:rgba(209, 213, 219"] {
+    color: #000000 !important;
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -753,14 +848,20 @@ section .container {
         height: 20px;
         border-radius: 50%;
         background: radial-gradient(circle, 
-            rgba(0, 102, 204, 0.4) 0%, 
-            rgba(0, 102, 204, 0) 70%);
+            rgba(30, 58, 138, 0.4) 0%, 
+            rgba(30, 58, 138, 0) 70%);
         position: fixed;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
         transition: width 0.3s ease, height 0.3s ease;
         display: block;
+    }
+    
+    body.dark .cursor-glow {
+        background: radial-gradient(circle, 
+            rgba(96, 165, 250, 0.4) 0%, 
+            rgba(96, 165, 250, 0) 70%);
     }
     
     .cursor-glow.hover {

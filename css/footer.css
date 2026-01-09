@@ -1,13 +1,20 @@
 /* ===== FOOTER ===== */
 .footer {
     background: linear-gradient(135deg, 
-        var(--academic-navy) 0%, 
-        #003366 50%,
-        var(--academic-navy) 100%);
+        var(--color-primary) 0%, 
+        #1E3A8A 50%,
+        var(--color-primary) 100%);
     position: relative;
     padding: calc(var(--spacing-unit) * 5) 0 calc(var(--spacing-unit) * 3);
     margin-top: 0;
     overflow: hidden;
+}
+
+body.dark .footer {
+    background: linear-gradient(135deg, 
+        #0B1220 0%, 
+        #111827 50%,
+        #0B1220 100%);
 }
 
 .footer-background {
@@ -36,10 +43,10 @@
     height: 2px;
     background: linear-gradient(90deg, 
         transparent, 
-        var(--academic-gold), 
+        var(--color-accent), 
         transparent);
     animation: footer-sweep 8s infinite;
-    box-shadow: 0 0 20px var(--academic-gold);
+    box-shadow: 0 0 20px var(--color-accent);
 }
 
 @keyframes footer-sweep {
@@ -111,9 +118,13 @@
     font-size: 2rem;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--light-bg);
+    color: #FFFFFF;
     margin: 0;
     text-align: center;
+}
+
+body.dark .footer-title {
+    color: var(--text-main);
 }
 
 .footer-text {
@@ -123,14 +134,22 @@
     max-width: 100%;
 }
 
+body.dark .footer-text {
+    color: var(--text-muted);
+}
+
 .footer-heading {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--light-bg);
+    color: #FFFFFF;
     margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+body.dark .footer-heading {
+    color: var(--text-main);
 }
 
 .footer-links {
@@ -147,7 +166,7 @@
 }
 
 .footer-links li:hover {
-    color: var(--academic-gold);
+    color: var(--color-accent);
     padding-left: calc(var(--spacing-unit) * 1);
 }
 
@@ -157,7 +176,7 @@
 }
 
 .footer-links a:hover {
-    color: var(--academic-gold);
+    color: var(--color-accent);
 }
 
 .footer-bottom {
@@ -201,10 +220,14 @@
 }
 
 .social-icon:hover {
-    background: var(--academic-gold);
-    border-color: var(--academic-gold);
-    color: var(--academic-navy);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary);
     transform: translateY(-2px);
+}
+
+body.dark .social-icon:hover {
+    color: #FFFFFF;
 }
 
 .social-icon svg {
