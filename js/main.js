@@ -249,55 +249,10 @@ function initMobileMenuToggle() {
         }
     });
     
-    // Add overlay element for better UX
-    if (!document.querySelector('.navbar-overlay')) {
-        const overlay = document.createElement('div');
-        overlay.className = 'navbar-overlay';
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1039;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-            pointer-events: none;
-        `;
-        
-        document.body.appendChild(overlay);
-        
-        // Show/hide overlay when menu opens/closes
-        navbarCollapse.addEventListener('shown.bs.collapse', function() {
-            overlay.style.opacity = '1';
-            overlay.style.visibility = 'visible';
-            // CRITICAL: Use pointer-events: none to avoid blocking menu clicks
-            overlay.style.pointerEvents = 'none';
-        });
-        
-        navbarCollapse.addEventListener('hidden.bs.collapse', function() {
-            overlay.style.opacity = '0';
-            overlay.style.visibility = 'hidden';
-            overlay.style.pointerEvents = 'none';
-        });
-        
-        // Close menu when clicking overlay - handle manually since pointer-events is none
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth > 991) return;
-            if (!navbarCollapse.classList.contains('show')) return;
-            
-            // If clicking on overlay (not menu content), close menu
-            if (e.target === overlay || e.target.classList.contains('navbar-overlay')) {
-                if (!e.target.closest('.navbar-collapse')) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                    if (bsCollapse) {
-                        bsCollapse.hide();
-                    }
-                }
-            }
-        }, false);
+    // Remove overlay element if it exists (no dimming effect needed)
+    const existingOverlay = document.querySelector('.navbar-overlay');
+    if (existingOverlay) {
+        existingOverlay.remove();
     }
 }
 

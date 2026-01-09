@@ -4,7 +4,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: calc(var(--spacing-unit) * 6) 0;
+    padding: calc(var(--spacing-unit) * 3) 0;
     position: relative;
     overflow: hidden;
 }
@@ -12,7 +12,7 @@
 /* Company Brand/Logo */
 .login-brand {
     text-align: center;
-    margin-bottom: calc(var(--spacing-unit) * 6);
+    margin-bottom: calc(var(--spacing-unit) * 3);
     position: relative;
     z-index: 1;
 }
@@ -33,24 +33,30 @@
 
 .brand-name {
     font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    letter-spacing: 4px;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: 2px;
     color: var(--titanium-silver);
-    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    margin-bottom: 0;
     text-transform: uppercase;
     transition: var(--transition-fast);
     cursor: pointer;
+    position: relative;
 }
 
-.brand-subtitle {
-    font-family: var(--font-heading);
-    font-weight: 300;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    letter-spacing: 8px;
-    color: rgba(184, 115, 51, 0.8);
-    text-transform: uppercase;
+.brand-name::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--molten-copper);
     transition: var(--transition-fast);
+}
+
+.brand-link:hover .brand-name::after {
+    width: 100%;
 }
 
 .login-background {
@@ -91,7 +97,7 @@
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
-    padding: calc(var(--spacing-unit) * 6);
+    padding: calc(var(--spacing-unit) * 4);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -121,7 +127,7 @@
 
 .login-header {
     text-align: center;
-    margin-bottom: calc(var(--spacing-unit) * 5);
+    margin-bottom: calc(var(--spacing-unit) * 3);
     position: relative;
     z-index: 1;
 }
@@ -142,7 +148,7 @@
 .login-tabs {
     display: flex;
     gap: calc(var(--spacing-unit) * 2);
-    margin-bottom: calc(var(--spacing-unit) * 4);
+    margin-bottom: calc(var(--spacing-unit) * 3);
     position: relative;
     z-index: 1;
 }
@@ -182,7 +188,7 @@
 
 .floating-input-group {
     position: relative;
-    margin-bottom: calc(var(--spacing-unit) * 4);
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
 
 .floating-input {
@@ -233,7 +239,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: calc(var(--spacing-unit) * 4);
+    margin-bottom: calc(var(--spacing-unit) * 3);
     font-size: 0.875rem;
 }
 
@@ -265,7 +271,7 @@
 
 .login-form .btn-neo {
     width: 100%;
-    margin-bottom: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
 .login-footer {
@@ -293,7 +299,7 @@
 
 /* Social Login */
 .social-login {
-    margin-top: calc(var(--spacing-unit) * 4);
+    margin-top: calc(var(--spacing-unit) * 3);
     position: relative;
     z-index: 1;
 }
@@ -302,7 +308,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    margin: calc(var(--spacing-unit) * 4) 0;
+    margin: calc(var(--spacing-unit) * 2.5) 0;
 }
 
 .divider::before,
@@ -374,7 +380,7 @@
 
 @media (max-width: 768px) {
     .login-container {
-        padding: calc(var(--spacing-unit) * 4);
+        padding: calc(var(--spacing-unit) * 3);
     }
     
     .login-header h1 {
