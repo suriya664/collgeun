@@ -4,7 +4,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: calc(var(--spacing-unit) * 3) 0;
+    padding: calc(var(--spacing-unit) * 2) 0;
     position: relative;
     overflow: hidden;
 }
@@ -12,7 +12,7 @@
 /* Company Brand/Logo */
 .login-brand {
     text-align: center;
-    margin-bottom: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 2);
     position: relative;
     z-index: 1;
 }
@@ -96,8 +96,8 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: calc(var(--spacing-unit) * 4);
+    border-radius: 16px;
+    padding: calc(var(--spacing-unit) * 2);
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -127,14 +127,14 @@
 
 .login-header {
     text-align: center;
-    margin-bottom: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
     position: relative;
     z-index: 1;
 }
 
 .login-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: calc(var(--spacing-unit) * 1);
+    font-size: 1.75rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.25);
     color: var(--titanium-silver);
 }
 
@@ -147,23 +147,23 @@
 /* Login Tabs */
 .login-tabs {
     display: flex;
-    gap: calc(var(--spacing-unit) * 2);
-    margin-bottom: calc(var(--spacing-unit) * 3);
+    gap: calc(var(--spacing-unit) * 1);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
     position: relative;
     z-index: 1;
 }
 
 .tab-btn {
     flex: 1;
-    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+    padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 1.5);
     background: rgba(11, 13, 15, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    border-radius: 10px;
     color: rgba(209, 213, 219, 0.7);
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 0.875rem;
-    letter-spacing: 1.5px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     transition: var(--transition-fast);
@@ -188,18 +188,18 @@
 
 .floating-input-group {
     position: relative;
-    margin-bottom: calc(var(--spacing-unit) * 2.5);
+    margin-bottom: calc(var(--spacing-unit) * 1.25);
 }
 
 .floating-input {
     width: 100%;
-    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 1.5);
+    padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 1);
     background: rgba(11, 13, 15, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    border-radius: 10px;
     color: var(--titanium-silver);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.875rem;
     transition: var(--transition-fast);
     outline: none;
 }
@@ -212,12 +212,12 @@
 
 .floating-input-group label {
     position: absolute;
-    left: calc(var(--spacing-unit) * 3);
-    top: calc(var(--spacing-unit) * 3);
+    left: calc(var(--spacing-unit) * 2);
+    top: calc(var(--spacing-unit) * 1.75);
     color: rgba(209, 213, 219, 0.6);
     font-family: var(--font-heading);
     font-weight: 500;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     pointer-events: none;
     transition: var(--transition-fast);
 }
@@ -225,8 +225,8 @@
 .floating-input-group.focused label,
 .floating-input-group input:focus + label,
 .floating-input-group input:not(:placeholder-shown) + label {
-    top: calc(var(--spacing-unit) * 1);
-    font-size: 0.75rem;
+    top: calc(var(--spacing-unit) * 0.5);
+    font-size: 0.6875rem;
     color: var(--molten-copper);
 }
 
@@ -239,8 +239,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: calc(var(--spacing-unit) * 3);
-    font-size: 0.875rem;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    font-size: 0.75rem;
 }
 
 .checkbox-label {
@@ -271,7 +271,9 @@
 
 .login-form .btn-neo {
     width: 100%;
-    margin-bottom: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 1.25);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+    font-size: 0.875rem;
 }
 
 .login-footer {
@@ -299,7 +301,7 @@
 
 /* Social Login */
 .social-login {
-    margin-top: calc(var(--spacing-unit) * 3);
+    margin-top: calc(var(--spacing-unit) * 1.5);
     position: relative;
     z-index: 1;
 }
@@ -308,7 +310,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    margin: calc(var(--spacing-unit) * 2.5) 0;
+    margin: calc(var(--spacing-unit) * 1.25) 0;
 }
 
 .divider::before,
@@ -330,22 +332,22 @@
 .social-buttons {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--spacing-unit) * 2);
+    gap: calc(var(--spacing-unit) * 1.25);
 }
 
 .social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: calc(var(--spacing-unit) * 2);
-    padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 3);
+    gap: calc(var(--spacing-unit) * 1.25);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
     background: rgba(11, 13, 15, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    border-radius: 10px;
     color: var(--titanium-silver);
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     text-decoration: none;
     transition: var(--transition-fast);
     cursor: pointer;
@@ -379,12 +381,81 @@
 }
 
 @media (max-width: 768px) {
+    .login-section {
+        padding: calc(var(--spacing-unit) * 1.5) 0;
+    }
+    
     .login-container {
-        padding: calc(var(--spacing-unit) * 3);
+        padding: calc(var(--spacing-unit) * 1.5);
+        border-radius: 14px;
     }
     
     .login-header h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: calc(var(--spacing-unit) * 0.25);
+    }
+    
+    .login-header {
+        margin-bottom: calc(var(--spacing-unit) * 1.25);
+    }
+    
+    .login-tabs {
+        margin-bottom: calc(var(--spacing-unit) * 1.25);
+    }
+    
+    .tab-btn {
+        padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 1.25);
+        font-size: 0.6875rem;
+    }
+    
+    .floating-input-group {
+        margin-bottom: calc(var(--spacing-unit) * 1);
+    }
+    
+    .floating-input {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 0.75);
+        font-size: 0.8125rem;
+    }
+    
+    .floating-input-group label {
+        left: calc(var(--spacing-unit) * 1.75);
+        top: calc(var(--spacing-unit) * 1.5);
+        font-size: 0.75rem;
+    }
+    
+    .floating-input-group.focused label,
+    .floating-input-group input:focus + label,
+    .floating-input-group input:not(:placeholder-shown) + label {
+        top: calc(var(--spacing-unit) * 0.375);
+        font-size: 0.625rem;
+    }
+    
+    .form-options {
+        margin-bottom: calc(var(--spacing-unit) * 1.25);
+        font-size: 0.6875rem;
+    }
+    
+    .login-form .btn-neo {
+        padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2);
+        font-size: 0.8125rem;
+        margin-bottom: calc(var(--spacing-unit) * 1);
+    }
+    
+    .social-login {
+        margin-top: calc(var(--spacing-unit) * 1.25);
+    }
+    
+    .divider {
+        margin: calc(var(--spacing-unit) * 1) 0;
+    }
+    
+    .social-btn {
+        padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 1.75);
+        font-size: 0.75rem;
+    }
+    
+    .login-brand {
+        margin-bottom: calc(var(--spacing-unit) * 1.5);
     }
 }
 
