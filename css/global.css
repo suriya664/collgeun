@@ -388,7 +388,6 @@ p {
 /* Ensure paragraphs use black text in light mode */
 body:not(.dark) p,
 body:not(.dark) .feature-text,
-body:not(.dark) .hero-subtext,
 body:not(.dark) .italic-subtext,
 body:not(.dark) li,
 body:not(.dark) span:not(.icon-sun):not(.icon-moon),
@@ -404,6 +403,13 @@ body:not(.dark) th,
 body:not(.dark) label,
 body:not(.dark) .form-label {
     color: #000000 !important;
+}
+
+/* Hero text should be white in light mode when on dark backgrounds */
+body:not(.dark) .hero-title,
+body:not(.dark) .hero-subtext,
+body:not(.dark) .hero-subtext.italic-subtext {
+    color: #FFFFFF !important;
 }
 
 body.dark p,

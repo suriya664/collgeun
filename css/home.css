@@ -2,14 +2,14 @@
 
 /* Hero Section */
 .hero-section {
-    min-height: 100vh;
+    min-height: 60vh;
     position: relative;
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 100px;
     margin-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: calc(var(--spacing-unit) * 4);
 }
 
 .hero-section .container {
@@ -23,7 +23,7 @@
 
 .hero-section .section-divider {
     margin-bottom: 0;
-    margin-top: calc(var(--spacing-unit) * 4);
+    margin-top: calc(var(--spacing-unit) * 2);
 }
 
 .hero-background {
@@ -33,7 +33,7 @@
     width: 100%;
     height: 100%;
     background: 
-        url('https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sbGVnZSUyMGNhbXB1c3xlbnwwfHwwfHx8MA%3D%3D');
+        url('https://tse4.mm.bing.net/th/id/OIP.5KwMTzhOIWKQeNkb1TLnSAHaEo?rs=1&pid=ImgDetMain&o=7&rm=3');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,28 +42,42 @@
     overflow: hidden;
 }
 
+/* Hide CSS background image when img tag exists (fallback for older browsers will show CSS background) */
+.hero-background .hero-bg-image {
+    display: block;
+}
+
 .hero-bg-image {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 1;
 }
 
 body.dark .hero-background {
     background: 
         linear-gradient(135deg, rgba(11, 18, 32, 0.8) 0%, rgba(17, 24, 39, 0.7) 100%),
-        url('https://images.unsplash.com/photo-1620650764255-6797e68c7904?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        url('https://tse4.mm.bing.net/th/id/OIP.5KwMTzhOIWKQeNkb1TLnSAHaEo?rs=1&pid=ImgDetMain&o=7&rm=3');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
+/* Dark overlay for img tag in dark mode */
+body.dark .hero-bg-image {
+    filter: brightness(0.7) contrast(1.1);
+}
+
 /* Home 2 Hero Background */
 .hero-background-home2 {
     background: 
-        url('https://images.unsplash.com/photo-1620650764255-6797e68c7904?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') !important;
+        url('https://tse3.mm.bing.net/th/id/OIP.BdkzzWaw-t9TfLhM1M-yKQHaC1?rs=1&pid=ImgDetMain&o=7&rm=3') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -73,7 +87,7 @@ body.dark .hero-background {
 body.dark .hero-background-home2 {
     background: 
         linear-gradient(135deg, rgba(11, 18, 32, 0.8) 0%, rgba(17, 24, 39, 0.7) 100%),
-        url('https://images.unsplash.com/photo-1620650764255-6797e68c7904?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') !important;
+        url('https://tse3.mm.bing.net/th/id/OIP.BdkzzWaw-t9TfLhM1M-yKQHaC1?rs=1&pid=ImgDetMain&o=7&rm=3') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -150,7 +164,7 @@ body.dark .ring-3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 50vh;
     text-align: center;
 }
 
@@ -236,9 +250,9 @@ body.dark .hero-title .title-letter {
 .hero-subtext {
     font-family: var(--font-subtext);
     font-style: italic;
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
     color: #FFFFFF;
-    margin-bottom: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 2);
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 51, 102, 0.4);
     text-align: center;
     width: 100%;
@@ -661,14 +675,12 @@ body:not(.dark) .stat-label {
 /* Tablet view (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
     .hero-bg-image {
-        display: none;
+        display: block !important;
+        opacity: 1 !important;
     }
     
     .hero-background {
-        background: 
-            radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.08) 0%, transparent 50%),
-            linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        background-attachment: scroll;
     }
     
     .hero-3d-container {
@@ -786,19 +798,18 @@ body:not(.dark) .stat-label {
     }
     
     .hero-bg-image {
-        display: none;
+        display: block !important;
+        opacity: 1 !important;
     }
     
     .hero-background {
-        background: 
-            radial-gradient(circle at 20% 50%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.08) 0%, transparent 50%),
-            linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        background-attachment: scroll;
     }
     
     .hero-section {
-        min-height: 80vh;
-        padding-top: 70px;
+        min-height: 50vh;
+        padding-top: 90px;
+        padding-bottom: calc(var(--spacing-unit) * 3);
     }
     
     section {
